@@ -1,0 +1,167 @@
+.sw-tabs{
+    border-radius: 4px;
+    overflow: hidden;
+}        
+
+.sw-tabs > .sw-tab {
+    width: 100%;
+    padding: 6px;            
+    border-bottom: 0.3px solid var(--theme-primary);       
+}
+
+.sw-tabs > .sw-tab > .sw-tab-label{
+    display: flex;            
+    justify-content: space-between;            
+    font-weight: bold;
+    padding: 6px ;
+    cursor: pointer;
+    width: 100%;            
+}
+
+.sw-tabs > .sw-tab > .sw-tab-label::after {
+    content: "\276F";
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    -webkit-transition: all .35s;
+    transition: all .35s;
+}
+
+.sw-tabs > .sw-tab > .sw-tab-content {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 1em;         
+    background: inherit;
+    -webkit-transition: all .45s;
+    transition: all .45s;
+    position: relative;
+}
+
+
+.sw-tabs > .sw-tab > .sw-check:checked ~ .sw-tab-label::after{
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.sw-tabs > .sw-tab > .sw-check:checked ~ .sw-tab-content {
+    max-height: 100vh;
+    padding: 1em;
+    opacity: 1;
+    position: relative;
+}
+
+.sw-check{
+    display: none;
+}
+
+.sw-tabs-nav{
+    border-radius: 4px;            
+    display: flex;      
+    position: relative;      
+}
+
+.sw-tabs-nav > .sw-tab {               
+    padding: 4px 4px 0 4px;
+    cursor: pointer;
+    width: 100%; 
+    text-align: center;
+    box-sizing: border-box;
+}        
+
+.sw-tabs-nav > .sw-tab > .sw-tab-label{
+    z-index: 2;            
+    font-weight: bold;
+    padding: 6px ;
+    cursor: pointer;
+    width: 100%;            
+    display: block;
+    margin: 0;
+}        
+
+.sw-tab-content {            
+    display: none;            
+    padding: 0 1em;         
+    background: inherit;
+    -webkit-transition: all .45s;
+    transition: all .45s;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: left;
+}
+
+.sw-check:checked ~ .sw-tab-content {
+    display: block;
+    padding: 1em;
+    opacity: 1;
+}
+
+.sw-check:checked ~ .sw-tab-label{
+    border-bottom: 2.45px solid var(--theme-primary);
+}
+
+.sw-tabs-nav > .sw-tab > .sw-tab-label:hover{
+    border-bottom: 2.45px solid rgba(25,10,22,0.35);
+}
+
+/* <div class="sw-tabs-nav" style="width: 800px;">
+
+        <div class="sw-tab">
+            <input class="sw-check" checked type="radio" name="ad" id="rad1">
+            <label class="sw-tab-label" for="rad1">Home</label>            
+            <div class="sw-tab-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus mollitia, numquam commodi laborum consectetur quidem? Atque error minus incidunt dolor omnis illo nostrum corporis, aliquam quo eaque ratione fugit earum.
+            </div>            
+        </div>
+        <div class="sw-tab">
+            <input class="sw-check" type="radio" name="ad" id="rad2">
+            <label class="sw-tab-label" for="rad2">Customer</label>            
+            <div class="sw-tab-content">
+                Customer aliquam quo eaque ratione fugit earum.
+            </div>
+        </div>
+        <div class="sw-tab">
+            <input class="sw-check" type="radio" name="ad" id="rad3">
+            <label class="sw-tab-label" for="rad3">Profit</label>            
+            <div class="sw-tab-content">
+                . Doloribus mollitia, numquam commodi laborum consectetur quidem? Atque error minus incidunt dolor omnis illo nostrum corporis, aliquam quo eaque ratione fugit earum.
+            </div>
+        </div>        
+    </div>
+
+    <div class="sw-tabs" style="width: 500px;">
+        
+        <div class="sw-tab">
+            <input class="sw-check" checked type="radio" name="rd" id="chck1">
+            <label class="sw-tab-label" for="chck1">Item 1</label>            
+            <div class="sw-tab-content">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sint, quisquam nesciunt quas ad cumque animi sed, facilis aut obcaecati beatae eligendi unde dolor. Itaque distinctio numquam eum vero sapiente.
+            </div>
+        </div>
+    
+        <div class="sw-tab">
+            <input class="sw-check" type="radio" name="rd" id="chck2">
+            <label class="sw-tab-label" for="chck2">Item 2</label>            
+            <div class="sw-tab-content">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
+            </div>
+        </div>
+    
+        <div class="sw-tab">
+            <input class="sw-check" type="radio" name="rd" id="chck3">
+            <label class="sw-tab-label" for="chck3">Item 3</label>            
+            <div class="sw-tab-content">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
+            </div>
+        </div>
+    
+        <div class="sw-tab">
+            <input class="sw-check" type="radio" name="rd" id="chck4">
+            <label class="sw-tab-label" for="chck4">Item 4</label>            
+            <div class="sw-tab-content">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
+            </div>
+        </div>
+        
+    
+    </div> */

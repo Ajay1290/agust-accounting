@@ -1,0 +1,63 @@
+.sw-rails, .sw-railset{
+    position: relative;            
+    width: 100%;
+    padding: 0;
+    margin: 0; 
+}
+.sw-rail-wrap{            
+    width: 100%;
+    padding: 0;
+    margin: 0;            
+    overflow: hidden;
+}
+.sw-rails > .sw-rail-wrap > .sw-rail{        
+    display: flex;  
+    padding: 2px 4px;    
+    position: relative;
+    animation-name: slide_animation;
+    animation-duration: 30s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-play-state: running;
+}
+.sw-rail-lang{
+    display: flex;  
+    padding: 2px 4px;    
+    position: relative;
+    animation-name: lang_slide_animation;
+    animation-duration: 30s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-play-state: running;
+}
+.sw-rail:hover{
+    animation-play-state:paused;
+    cursor: pointer;
+}
+.sw-rails-item{
+    margin: 2px 2px;
+    list-style: none;
+    display: inline-block;
+    padding:0px 10px;
+    font-size: 0.8em;
+}
+@keyframes slide_animation {
+    0% {left: 0vw;}                        
+    100% {left: 100vw;}
+}	
+
+@keyframes lang_slide_animation {
+    0% {left: 100vw;}                        
+    100% {left: -10vw;}
+}	
+
+/* 
+<div class="sw-rails">
+        <div class="sw-rail-wrap">
+            <div class="sw-rail">
+                <a href="https://www.google.com" class="sw-rails-item">google</a>                
+                <div class="sw-rails-item">Games</div>
+            </div>        
+        </div>
+    </div>
+*/

@@ -1,0 +1,26 @@
+:root{
+    --mdc-theme-primary: #120d2f !important;
+    --mdc-theme-secondary: #ECEC1D !important;
+    --mdc-theme-surface: #FEFFEF !important;
+}
+
+*:focus{
+    outline: 0 !important;
+}
+
+body{
+    font-size: 1em;
+    min-height: 100vh;
+    background-color: var(--mdc-theme-secondary) !important;
+}
+
+a{
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+a:hover{
+    text-decoration: none !important;
+    color: inherit !important;
+}
+

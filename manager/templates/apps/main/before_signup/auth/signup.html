@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agust Accounting Sign Up - Sign Up to Agust Accounting Software</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='src/CSS/main_pg.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/dev/CSS/vendor/vendor.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/dev/CSS/vendor/swarup.min.css') }}">    
+    <style>
+        *{
+            user-select: none;
+        }
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            /* background-color: whitesmoke !important; */
+            background-color: #ECEEF1 !important;
+        }
+        h1{
+            font-family: Roboto, Helvetica, Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        a{
+            color:rgba(18,13,47,1) !important;
+            text-decoration: none;
+        }
+        a:hover{
+            color:rgba(18,13,47,1) !important;
+            text-decoration: none;
+        }
+        .form-control:focus{            
+            color: #495057;
+            background-color: #fff;
+            border-color: rgba(18,13,47,1) !important;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(18,13,47,0.25) !important;
+        }
+        .login_wrapper{
+            /* background-color: var(--mdc-theme-primary); */
+            /* opacity: 0.925; */
+            min-height: 100vh;
+        }
+        .login_white_wrapper{
+            margin: 35px 0;            
+            display: flex;
+            align-items: center;
+            justify-content: center;            
+        }
+        .login_inner_white_wrapper{
+            background-color: #fff;
+            width: 500px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            padding: 25px 15px; 
+            text-align: center;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 3px #dadce0;
+        }
+        .sw-hr{            
+            padding: 0 25px;
+            border-top: 1px solid #e2e1e1;            
+        }
+        .sw-icon-form{
+            display: flex;
+            align-items: center;
+        }
+        .sw-form-control{
+            width: 100%;
+            border: none;
+        }
+        /* .sw-form-control:focus, .sw-form-control:active,.sw-form-control:hover{
+            outline: none !important;
+            background-color: #fff !important;
+            box-shadow: none !important;
+        }
+        .sw-form-control:focus + .sw-icon-form{
+            color: #495057;
+            background-color: #fff;
+            border-color: rgba(18,13,47,1) !important;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(18,13,47,0.25) !important;
+        } */
+    </style>
+</head>
+<body>
+    <div class="login_wrapper">
+        <div class="container">
+            <div class="login_white_wrapper">
+                <div class="login_inner_white_wrapper">
+                    <form class="sw-form" method="POST" action="{{ url_for('users.signup') }}">
+                        {{ form.hidden_tag() }}
+                        <div class="mx-3">
+                            <a href="{{ url_for('main.home') }}"><h1>Agust</h1></a>
+                            <h3 class="f-24" style="color: #7C7Eb1 !important;letter-spacing: 0.19em;">Accounting</h3>
+                            <hr class="sw-hr">                    
+                            <h5 class="f-22">Sign Up</h5>
+                            <p class="f-14 px-5 mx-2">
+                                One account for everything on Agust including Agust Accounting Software.
+                            </p>
+                            <div class="mx-4 my-4">                                
+                                
+                                <!-- Username -->
+                                <div class="my-3">
+                                    <div class="w-100 text-left">
+                                        <label class="d-inline-block f-12" for="username">Username </label>
+                                    </div>
+                                    {% if form.username.errors %}
+                                        {{ form.username(class="f-14 form-control  is-invalid") }}
+                                        <div class="invalid-feedback text-left">
+                                            {% for error in form.username.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.username(class="f-14 form-control") }} 
+                                    {% endif %}
+                                </div>
+
+                                <!-- Email -->
+                                <div class="my-3">
+                                    <div class="w-100 text-left">
+                                        <label class="d-inline-block f-12" for="email">Email </label>
+                                    </div>
+                                    {% if form.email.errors %}
+                                        {{ form.email(class="f-14 form-control  is-invalid") }}
+                                        <div class="invalid-feedback text-left">
+                                            {% for error in form.email.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.email(class="f-14 form-control") }} 
+                                    {% endif %}
+                                </div>
+
+                                <!-- Phone -->
+                                <div class="my-3">
+                                    <div class="w-100 text-left">
+                                        <label class="d-inline-block f-12" for="phone">Phone </label>
+                                    </div>
+                                    {% if form.phone.errors %}
+                                        {{ form.phone(class="f-14 form-control  is-invalid") }}
+                                        <div class="invalid-feedback text-left">
+                                            {% for error in form.phone.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.phone(class="f-14 form-control") }} 
+                                    {% endif %}
+                                </div>
+
+                                <!-- Password -->
+                                <div class="my-3">
+                                    <div class="w-100 text-left">
+                                        <label class="d-inline-block f-12" for="password">Password </label>
+                                    </div>
+                                    {% if form.password.errors %}
+                                        {{ form.password(class="f-14 form-control  is-invalid") }}
+                                        <div class="invalid-feedback text-left">
+                                            {% for error in form.password.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.password(class="f-14 form-control") }} 
+                                    {% endif %}
+                                </div>
+
+                                <!-- Confirm Password -->
+                                <div class="my-3">
+                                    <div class="w-100 text-left">
+                                        <label class="d-inline-block f-12" for="confirm_password">Confirm Password </label>
+                                    </div>
+                                    {% if form.confirm_password.errors %}
+                                        {{ form.confirm_password(class="f-14 form-control  is-invalid") }}
+                                        <div class="invalid-feedback text-left">
+                                            {% for error in form.confirm_password.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.confirm_password(class="f-14 form-control") }} 
+                                    {% endif %}
+                                </div>
+
+                                <!-- Sign In Btn -->
+                                <button class="mt-4 sw-btn d-inline-block w-100 p-2">
+                                    <span class="sw-btn-ripple"></span>
+                                    Sign Up
+                                </button>
+                                
+                                <!-- Statment -->
+                                <p class="f-12 mt-2 px-5">
+                                    By clicking Sign in, you agree to our Terms and have read and acknowledge our IN Privacy Statement.<br> <b>Updated on January 1, 2020</b>
+                                </p>
+
+                                <hr class="sw-hr pb-3">
+
+                                <!-- Sign Up -->
+                                <div>
+                                    <h6 class="pb-2">
+                                       Already have an Account ?
+                                    </h6>
+                                    <a href="{{ url_for('users.login') }}">
+                                        <span class="sw-btn sw-btn-outline d-inline-block w-100">
+                                            <span class="sw-btn-ripple"></span>
+                                            Sign In
+                                        </span>  
+                                    </a>
+                                </div>
+                                
+                            </div>                        
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <script src="{{ url_for('static', filename='dist/dev/JS/vendor/vendor.js') }}"></script>    
+    <script src="{{ url_for('static', filename='dist/dev/JS/vendor/swarup.js') }}"></script>
+</body>
+</html>

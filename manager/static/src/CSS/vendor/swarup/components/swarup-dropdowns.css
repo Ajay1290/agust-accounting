@@ -1,0 +1,46 @@
+.sw-dropdown{
+    cursor: pointer;            
+    position: relative;
+    display: inline-block;        
+}
+
+
+.sw-dropmenu{
+    display: block;            
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0px;
+    width: 200px;
+    z-index: 1000;
+    background-color: #fff;
+    height: 0;            
+    opacity: 0;            
+    overflow: hidden;
+}
+.sw-dropmenu > .sw-item{
+    font-family: inherit;
+    padding: 12px 15px;
+    color: black;
+    display: block;
+}
+.sw-dropmenu > .sw-item:hover{
+    background: rgba(10, 24, 31, 0.1);
+}
+
+.sw-dropdown:active >  .sw-dropmenu,
+.sw-dropdown:focus >  .sw-dropmenu,
+.sw-dropdown:hover >  .sw-dropmenu,
+.sw-droplabel:active ~ .sw-dropdown > .sw-dropmenu,
+.sw-droplabel:focus ~  .sw-dropdown > .sw-dropmenu,
+.sw-droplabel:hover ~  .sw-dropdown > .sw-dropmenu{
+    height: auto;
+    opacity: 1;
+    transition: opacity 0.5s linear;                        
+}
+
+.sw-droplabel{
+    cursor: pointer;
+}

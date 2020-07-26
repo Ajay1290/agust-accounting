@@ -1,0 +1,341 @@
+{% extends 'base.html' %}
+
+{% block head %}  
+{% endblock head %}
+
+{% block drawer %}    
+    <div id="newInventory" class="drawer w-50">
+        <div class="container-fluid px-4 py-3">            
+            <!-- Choose Sections -->
+            <div id="chooseInventory" class="row text-center px-3" style="position: relative;">
+                <h1 class="f-28 money b-3">
+                    Choose Category of Inventory
+                    <sapn tabindex="1" class="sw-i-btn f-10" sw-title="Select category of inventory let it be products which you sell or let it be service which you provide on cyclic basis.">i</sapn>
+                </h1>
+
+                <div class="col-6 px-3 border-right mt-4" style="padding: 150px 0;">
+                    <h1 class="f-26">Product</h1>
+                    <div class="money f-18 px-3">
+                        Create a Product which you sell and want to manage stock of it.
+                    </div>                    
+                    <span tabindex="2" id="createProductBtn" class="sw-btn mt-2 px-3 f-16 money b-3">
+                        <span class="sw-btn-ripple"></span>
+                        Create Product
+                    </span>
+                </div>
+
+                <span class="money f-14" style="z-index: 2; position:absolute;background: #fff;left: calc(50% - 10px);top: calc(50% - 10px);padding: 5px;">or</span>
+
+                <div class="col-6 px-3 border-left mt-4" style="padding: 150px 0;">
+                    <h1 class="f-26">Service</h1>
+                    <div class="money f-18 px-3">
+                        Create a Service which you provide on event or cyclic basis.
+                    </div>
+                    <span tabindex="2" class="sw-btn px-3 mt-2 f-16 money b-3">
+                        <span class="sw-btn-ripple"></span>
+                        Create Service
+                    </span>
+                </div>
+            </div>
+
+            <!-- Create Product -->
+            <div id="createProduct" class="row text-center px-3" style="position: relative;">
+                <h1 class="f-28 money b-3">
+                    Create New Product
+                    <sapn tabindex="1" class="sw-i-btn f-10" sw-title="Create a new product which you want sell or manage stock of it.">i</sapn>
+                    <small id="changeType" class="f-12 text-primary" style="font-family: sans-serif; cursor: pointer;">Change Type</small>
+                </h1>
+
+                <form action="#" method="POST" class="sw-form f-14 px-2">
+                    {{ form.hidden_tag() }}
+                    <!-- Product Name -->
+                    <div class="row my-3">
+                        <div class="col-6">
+                            <div class="sw-form-input-wrapper">
+                                {% if form.name.errors %}
+                                    {{ form.name(class="sw-form-input is-invalid" , placeholder="Product Name") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.name.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.name(class="sw-form-input", placeholder="Product Name") }}
+                                {% endif %}
+                                <label for="name"  class="sw-form-input-label">Product Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Description -->
+                    <div class="row my-3">
+                        <div class="col-8">
+                            <div class="sw-form-input-wrapper">
+                                {% if form.description.errors %}
+                                    {{ form.description(class="sw-form-input is-invalid" , placeholder="Description") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.description.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.description(class="sw-form-input", placeholder="Description") }}
+                                {% endif %}
+                                <label for="description"  class="sw-form-input-label">Description</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Code, Category -->
+                    <div class="row my-3">
+                        <!-- Product Code -->
+                        <div class="col-5">
+                            <div class="sw-form-input-wrapper">
+                                {% if form.product_code.errors %}
+                                    {{ form.product_code(class="sw-form-input is-invalid" , placeholder="Product Code") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.product_code.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.product_code(class="sw-form-input", placeholder="Product Code") }}
+                                {% endif %}
+                                <label for="product_code"  class="sw-form-input-label">Product Code</label>
+                            </div>
+                        </div>
+                        <!-- Category -->
+                        <div class="col-5">
+                            <div class="sw-form-input-wrapper">
+                                {% if form.category.errors %}
+                                    {{ form.category(class="sw-form-input is-invalid" , placeholder="Category") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.category.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.category(class="sw-form-input", placeholder="Category") }}
+                                {% endif %}
+                                <label for="category"  class="sw-form-input-label">Category</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Unit, Qty, Low Stock Alert -->
+                    <div class="row my-3">
+                        <!-- Unit -->
+                        <div class="col-4">
+                            <div class="sw-form-input-wrapper">
+                                {% if form.unit.errors %}
+                                    {{ form.unit(class="sw-form-input is-invalid" , placeholder="Unit") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.unit.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.unit(class="sw-form-input", placeholder="Unit") }}
+                                {% endif %}
+                                <label for="unit"  class="sw-form-input-label">Unit</label>
+                            </div>
+                        </div>
+                        <!-- Qty -->
+                        <div class="col-4">
+                            <div class="sw-form-input-wrapper">
+                                {% if form.qty.errors %}
+                                    {{ form.qty(class="sw-form-input is-invalid" ,type="number", placeholder="Initial Qty") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.qty.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.qty(class="sw-form-input",type="number", placeholder="Initial Qty") }}
+                                {% endif %}
+                                <label for="qty"  class="sw-form-input-label">Initial Qty</label>
+                            </div>
+                        </div>
+                        <!-- Low Stock Alert -->
+                        <div class="col-4">
+                            <div class="sw-form-input-wrapper">
+                                {% if form.low_stock_alert.errors %}
+                                    {{ form.low_stock_alert(class="sw-form-input is-invalid" ,type="number", placeholder="Low Stock Alert") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.low_stock_alert.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.low_stock_alert(class="sw-form-input",type="number", placeholder="Low Stock Alert") }}
+                                {% endif %}
+                                <label for="low_stock_alert"  class="sw-form-input-label">Low Stock Alert</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sales Price -->
+                    <div class="row my-3">
+                        <!-- Sales Price -->
+                        <div class="col-4">
+                            <div class="sw-form-input-wrapper">
+                                {% if form.sales_price.errors %}
+                                    {{ form.sales_price(class="sw-form-input is-invalid" , placeholder="Default Sales Price") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.sales_price.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.sales_price(class="sw-form-input", placeholder="Default Sales Price") }}
+                                {% endif %}
+                                <label for="sales_price"  class="sw-form-input-label">Default Sales Price</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-3">
+                        <div class="col-12">
+                            <div class="py-3 d-flex">
+                                <button tabindex="11" type="submit" class="sw-btn d-inline-block px-4 mx-1">
+                                    <span class="sw-btn-ripple"></span>
+                                    Save
+                                </button>
+                                <span tabindex="10" class="sw-btn sw-btn-outline drawer-cancle-button d-inline-block px-3 mx-2">
+                                    <span class="sw-btn-ripple"></span>
+                                    Cancle
+                                </span>
+                            </div>                        
+                        </div>
+                    </div>
+
+                </form>                
+            </div>
+
+            <script>
+                function getById(s){
+                   return document.getElementById(s);
+                }
+
+                let chooseSection = getById('chooseInventory');
+                let createProductSection = getById('createProduct');
+                
+                
+                createProductSection.style.display = 'none';
+                                
+
+                var createProductBtn = getById('createProductBtn');
+                createProductBtn.addEventListener('click',function(){
+                    chooseSection.style.display = 'none';
+                    createProductSection.style.display = 'flex';
+                    changeType(createProductSection)
+                })
+
+                function changeType(section) {
+                    let changeTypeBtn = getById('changeType');
+                    changeTypeBtn.addEventListener('click',function(){
+                        section.style.display = 'none';
+                        chooseSection.style.display = 'flex';
+                        let forms = section.children[1];
+                        forms.reset()
+                    })                    
+                }
+
+            </script>
+            
+        </div>        
+    </div>
+{% endblock drawer %}
+
+
+{% block navmate %}
+    <ul class="nav nav-tabs ml-3 mt-3 f-16 b-2 money" id="myTab" role="tablist">
+        <li class="nav-item">            
+            <a class="nav-link {% if request.path=='/inventory' %}active{% endif %}" href="{{ url_for('inventory.all_inventory') }}">
+                All Inventory
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                Suppliers
+            </a>
+        </li>
+    </ul>
+{% endblock navmate %}
+
+{% block main %}
+    {% if inv.__len__() >0 %}
+        <div class="mx-2">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="f-24 d-inline-block">Inventory</h1>
+                    <span drawer-target="#newInventory" id="create_inv_btn" tabindex="102" class="sw-btn drawer-button d-inline-block f-12 float-right sharp-txt">
+                        <span class="sw-btn-ripple"></span>
+                        + Add To Inventory
+                    </span>
+                </div>
+            </div>
+
+            <div class="row sharp-txt f-12 bg-light mx-5 mt-4 border rounded-pill p-2 py-3 ">
+                <div class="col-6 border-right" style="display: flex;align-items: center;justify-content: center;flex-direction: column;">
+                    <h1 class="w-100 text-center mb-0 pb-0 text-info">0</h1>
+                    <h3 class="f-28 money">Low In Stock</h3>
+                </div>
+                <div class="col-6 border-left" style="display: flex;align-items: center;justify-content: center;flex-direction: column;">
+                    <h1 class="w-100  text-center mb-0 pb-0 text-danger">0</h1>
+                    <h3 class="f-28 money">Out Of Stock</h3>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="table-area">
+                        <div class="table-features">
+                            <div class="table-filter"></div>
+                            <div class="table-search"></div>
+                            <div tabindex="23" class="sw-droplabel table-dots"></div>
+                            <div class="sw-dropdown f-12">
+                                <div class="sw-dropmenu" style="right: 0;left: auto;">
+                                    <div class="sw-item">Inactive Selected</div>
+                                    <div class="sw-item">Adjust Columns</div>                                    
+                                    <div class="sw-item border-top">Include Inactive</div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table pager_details table-rower table-infom">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Customer Name</th>
+                                    <th class="text-left">Category</th>
+                                    <th class="text-left">In Stock</th>                                    
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for in in inv %}
+                                    <tr class="p-0" style="line-height: 1.2em;">
+                                        <td class="text-left">
+                                            <a href="#">
+                                                {{ in.name }}
+                                            </a><br>
+                                            <span class="f-10 mt-0 pt-0">{{ in.product_code }}</span>
+                                        </td>
+                                        <td>{{ in.category }}</td>                                        
+                                        <td>{{ in.qty }}</td>
+                                        <td class="text-right">Do Something</td>
+                                    </tr>
+                                {% endfor %}                                
+                            </tbody>                    
+                        </table>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    {% else %}
+    <div class="container h-100" style="display: flex;align-items: center;justify-content: center;">        
+        <h2 class="f-34 text-center money w-50">
+            Manage Your Inventory get acknowledgement of your own Assets.<br>
+            <span drawer-target="#newInventory" id="create_inv_btn" tabindex="102" class="sw-btn drawer-button d-inline-block f-16 mt-2 px-3 sharp-txt">
+                <span class="sw-btn-ripple"></span>
+                Get Started
+            </span>
+        </h2>      
+    </div>
+    {% endif %}
+{% endblock main %}

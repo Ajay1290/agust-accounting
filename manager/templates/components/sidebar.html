@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-12">
+        <div style="padding:8px 2px 4px 10px;">
+            <a class="brand-link">
+                <h1 class="h5 brand-logo">Agust Accounting</h1>
+            </a>
+        </div>
+        
+        <div class="sw-tabs py-2">
+
+            <div class="sw-tab py-1 px-2 pl-3" style="border: none;">
+                <a href="{{ url_for('main.home') }}" class="text-white" style="text-decoration: none;">
+                    <label class="sw-item b-3 pl-1 mb-0 f-14 pb-1">Dashboard</label>
+                </a>
+            </div>
+        
+            <div class="sw-tab py-1 px-2 pl-3" style="border: none;">
+                <label class="sw-item b-3 pl-1 mb-0 f-14 pb-1">Expenses</label>
+            </div>
+        
+            <div class="sw-tab py-1 mt-0 px-2 pl-3 my-0" style="border: none;">
+                <input type="radio" name="ad" id="d" class="sw-check">
+                <label for="d" class="sw-tab-label mb-0 pt-1 mt-0 f-14 pb-1">Sales</label>
+                <div class="sw-tab-content f-12 py-0">
+                    <div class="sw-list pl-2">                        
+                        <a  href="{{ url_for('sales.all_sales') }}" class="text-white" style="text-decoration: none;">
+                            <div class="sw-tab-label py-2 my-0 f-14 ">All Sales</div>
+                        </a>
+                        <a href="#" class="text-white" style="text-decoration: none;">
+                            <div class="sw-tab-label py-2 my-0 f-14 ">Invoices</div>
+                        </a>
+                        <a href="{{ url_for('customers.all_customers') }}" class="text-white" style="text-decoration: none;">
+                            <div class="sw-tab-label py-2 my-0 f-14 ">Customers</div>
+                        </a>                        
+                    </div>
+                </div>
+            </div>            
+        
+            <div class="sw-tab py-1 mt-0 px-2 pl-3 my-0" style="border: none;">
+                <input type="radio" name="ad" id="exp" class="sw-check">
+                <label for="exp" class="sw-tab-label mb-0 pt-1 mt-0 f-14 pb-1">Inventory</label>
+                <div class="sw-tab-content f-12 py-0">
+                    <div class="sw-list pl-2">
+                        <a href="{{ url_for('inventory.all_inventory') }}" class="text-white" style="text-decoration: none;">
+                            <div class="sw-tab-label py-2 my-0 f-14 ">All Inventory</div>
+                        </a>
+                        <a href="{{ url_for('suppliers.all_suppliers') }}" class="text-white" style="text-decoration: none;">
+                            <div class="sw-tab-label py-2 my-0 f-14 ">Suppliers</div>
+                        </a>
+                        <a href="#" class="text-white" style="text-decoration: none;">
+                            <div class="sw-tab-label py-2 my-0 f-14 ">Purchase</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sw-tab py-1 px-2 pl-3" style="border: none;">
+                <a href="{{ url_for('main.home') }}" class="text-white" style="text-decoration: none;">
+                    <label class="sw-item b-3 pl-1 mb-0 f-14 pb-1">Accounts</label>
+                </a>
+            </div>
+            
+        </div>
+         
+        
+        
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agust Accounting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='src/CSS/main_pg.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/dev/CSS/vendor/vendor.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/dev/CSS/vendor/swarup.min.css') }}">        
+
+</head>
+<body>
+    {% block nav %}
+    <header class="sw-nav-primary py-2 shadow-dp-10-i">
+        <nav class="container">                
+            <span class="mt-1 d-inline-block">
+                <a href="{{ url_for('main.home') }}" class="mr-4 f-18 b-3">
+                    Agust Accounting
+                </a>
+                <a class="sw-btn d-inline-flex f-14" tabindex="1">Features</a>
+                <a href="{{ url_for('main.pricing') }}" class="sw-btn d-inline-flex f-14" tabindex="2">
+                    Pricing
+                </a>
+                <a class="sw-btn d-inline-flex f-14" tabindex="1">Learn More</a>
+            </span>
+            <span class="mt-1 d-inline-block float-right">                
+                {% if not current_user.is_authenticated %}
+                    <a href="{{ url_for('users.signup') }}" class="sw-btn d-inline-flex f-14" tabindex="1">
+                        Sign Up
+                    </a>
+                    <a href="{{ url_for('users.login') }}" class="sw-btn d-inline-flex f-14" tabindex="1">
+                        Sign In
+                    </a>
+                {% endif %}
+            </span>
+        </nav>        
+    </header>
+    {% endblock nav %}
+
+    {% block main_pg %}
+    <div class="jumbotron jumbotron-fluid bg-white border-bottom shadow-dp-10">
+        <div class="container">
+            <div class="row mt-5 pt-5">
+                <div class="col-5">
+                    <h1 class="display-5">
+                        Boost your business with Agust Accounting Online Software.
+                    </h1>
+                    <span>
+                        <span class="sw-btn sw-btn-text f-12 d-inline-block px-3" tabindex="1">
+                            <span class="sw-btn-ripple"></span>
+                            Try 7-Day Free Trial
+                        </span>                  
+                        <a href="{{ url_for('main.pricing') }}">
+                            <span class="sw-btn f-12 d-inline-block px-3" tabindex="1">
+                                <span class="sw-btn-ripple"></span>                            
+                                Buy Now
+                            </span>
+                        </a>
+                    </span>
+                </div>
+                <div class="col-7">
+                    <img src="" alt="">
+                </div>
+        </div>
+    </div>
+    {% endblock main_pg %}
+
+
+    <script src="{{ url_for('static', filename='dist/dev/JS/vendor/vendor.js') }}"></script>    
+    <script src="{{ url_for('static', filename='dist/dev/JS/vendor/swarup.js') }}"></script>
+</body>
+</html>

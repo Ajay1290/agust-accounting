@@ -1,0 +1,226 @@
+.sw-bg-secondary{
+    background-color: var(--mdc-theme-secondary) !important;
+}
+
+.sw-bg-primary{
+    background-color: var(--mdc-theme-primary) !important;
+}
+
+.sw-border{
+    border: 1px solid var(--mdc-theme-primary) ;
+}
+
+.sw-nav-primary{
+    background-color: var(--mdc-theme-primary);
+    color: var(--mdc-theme-surface);
+}
+
+.sw-shadow-10px{
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0,0,0,.12);
+}
+
+.sw-shadow-10px-p{
+    box-shadow: 0px 2px 4px -1px rgba(18, 13, 47, 0.2), 0px 4px 5px 0px rgba(18, 13, 47, 0.14), 0px 1px 10px 0px rgba(18, 13, 47,.12);
+}
+
+.sw-shadow-10px-s{
+    box-shadow: 0px 2px 4px -1px rgba(236, 238, 241, 0.2), 0px 4px 5px 0px rgba(236, 238, 241, 0.14), 0px 1px 10px 0px rgba(236, 238, 241,.12);
+}
+
+.sw-tooltip ,.sw-tooltip-up,.sw-tooltip-left,.sw-tooltip-right{
+    position: relative;
+    z-index: 2;
+    cursor: pointer;    
+}
+
+/* title-tip down */
+.sw-tooltip[sw-title]:hover, .sw-tooltip[sw-title]:focus {
+    position: relative;
+}
+
+.sw-tooltip[sw-title]:hover:before, .sw-tooltip[sw-title]:focus:before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 99999;
+    content: attr(sw-title);
+    margin-top: 0.5em;
+    padding: 0.5em;
+    width: 200px;    /* change it */
+    overflow: hidden;
+    word-wrap: break-word;
+    font-size: 11px;
+    color: #FFF;
+    text-align: center;
+    background-color: #222;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.sw-tooltip[sw-title]:hover:after, .sw-tooltip[sw-title]:focus:after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 99999;
+    content: '';
+    margin-left: -0.125em;
+    width: 0;
+    height: 0;
+    border: 0.25em dashed transparent;
+    border-bottom: 0.25em solid #222;
+    font-size: 11px;
+}
+  
+  /* sw-title-tip-up */
+.sw-tooltip-up[sw-title]:hover:before, .sw-tooltip-up[sw-title]:focus:before {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.sw-tooltip-up[sw-title]:hover:after, .sw-tooltip-up[sw-title]:focus:after {
+    top: auto;
+    bottom: 100%;
+    border: 0.25em dashed transparent;
+    border-top: 0.25em solid #222;
+}
+  
+/* sw-title-tip-right */
+.sw-tooltip-right[sw-title]:hover:before, .sw-tooltip-right[sw-title]:focus:before {
+    top: auto;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0.5em;
+}
+
+.sw-tooltip-right[sw-title]:hover:after, .sw-tooltip-right[sw-title]:focus:after {
+    top: 50%;
+    left: 100%;
+    margin-left: 0;
+    margin-top: -0.125em;
+    border: 0.25em dashed transparent;
+    border-right: 0.25em solid #222;
+}
+  
+ /* sw-title-tip-left */
+.sw-tooltip-left[sw-title]:hover:before, .sw-tooltip-left[sw-title]:focus:before {
+    top: auto;
+    left: auto;
+    right: 100%;
+    margin-top: 0;
+    margin-right: 0.5em;
+}
+
+.sw-tooltip-left[sw-title]:hover:after, .sw-tooltip-left[sw-title]:focus:after {
+    top: 50%;
+    left: auto;
+    right: 100%;
+    margin-left: 0;
+    margin-top: -0.125em;
+    border: 0.25em dashed transparent;
+    border-left: 0.25em solid #222;
+}
+
+
+
+
+
+.sw-i-btn,.sw-i-btn-up,.sw-i-btn-left,.sw-i-btn-right{
+    border-radius: 50%;
+    border: 1px solid #dee2e6;
+    padding: 0px 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* title-tip down */
+.sw-i-btn[sw-title]:hover, .sw-i-btn[sw-title]:focus {
+    position: relative;
+}
+
+.sw-i-btn[sw-title]:hover:before, .sw-i-btn[sw-title]:focus:before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 99999;
+    content: attr(sw-title);
+    margin-top: 0.5em;
+    padding: 0.5em;
+    width: 200px;    /* change it */
+    overflow: hidden;
+    word-wrap: break-word;
+    font-size: 11px;
+    color: #FFF;
+    text-align: center;
+    background-color: #222;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.sw-i-btn[sw-title]:hover:after, .sw-i-btn[sw-title]:focus:after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 99999;
+    content: '';
+    margin-left: -0.125em;
+    width: 0;
+    height: 0;
+    border: 0.25em dashed transparent;
+    border-bottom: 0.25em solid #222;
+    font-size: 11px;
+}
+  
+  /* sw-title-tip-up */
+.sw-i-btn-up[sw-title]:hover:before, .sw-i-btn-up[sw-title]:focus:before {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.sw-i-btn-up[sw-title]:hover:after, .sw-i-btn-up[sw-title]:focus:after {
+    top: auto;
+    bottom: 100%;
+    border: 0.25em dashed transparent;
+    border-top: 0.25em solid #222;
+}
+  
+/* sw-title-tip-right */
+.sw-i-btn-right[sw-title]:hover:before, .sw-i-btn-right[sw-title]:focus:before {
+    top: auto;
+    left: 100%;
+    margin-top: 0;
+    margin-left: 0.5em;
+}
+
+.sw-i-btn-right[sw-title]:hover:after, .sw-i-btn-right[sw-title]:focus:after {
+    top: 50%;
+    left: 100%;
+    margin-left: 0;
+    margin-top: -0.125em;
+    border: 0.25em dashed transparent;
+    border-right: 0.25em solid #222;
+}
+  
+ /* sw-title-tip-left */
+.sw-i-btn-left[sw-title]:hover:before, .sw-i-btn-left[sw-title]:focus:before {
+    top: auto;
+    left: auto;
+    right: 100%;
+    margin-top: 0;
+    margin-right: 0.5em;
+}
+
+.sw-i-btn-left[sw-title]:hover:after, .sw-i-btn-left[sw-title]:focus:after {
+    top: 50%;
+    left: auto;
+    right: 100%;
+    margin-left: 0;
+    margin-top: -0.125em;
+    border: 0.25em dashed transparent;
+    border-left: 0.25em solid #222;
+}

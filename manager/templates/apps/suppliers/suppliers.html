@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block head %}  
+{% endblock head %}
+
+{% block drawer %}    
+    <div id="newInventory" class="drawer w-50">
+        <div class="container-fluid px-4 py-3">                        
+            
+        </div>        
+    </div>
+{% endblock drawer %}
+
+
+{% block navmate %}
+    <ul class="nav nav-tabs ml-3 mt-3 f-16 b-2 money" id="myTab" role="tablist">
+        <li class="nav-item">            
+            <a class="nav-link {% if request.path=='/inventory' %}active{% endif %}" href="{{ url_for('inventory.all_inventory') }}">
+                All Inventory
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path=='/suppliers' %}active{% endif %}" href="{{ url_for('suppliers.all_suppliers') }}">
+                Suppliers
+            </a>
+        </li>
+    </ul>
+{% endblock navmate %}
+
+{% block main %}
+    {% if suppliers.__len__() >0 %}
+        <div class="mx-2">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="f-24 d-inline-block">Inventory</h1>
+                    <span drawer-target="#newInventory" id="create_inv_btn" tabindex="102" class="sw-btn drawer-button d-inline-block f-12 float-right sharp-txt">
+                        <span class="sw-btn-ripple"></span>
+                        + Add To Inventory
+                    </span>
+                </div>
+            </div>
+
+            <div class="row sharp-txt f-12 bg-light mx-5 mt-4 border rounded-pill p-2 py-3 ">
+                <div class="col-6 border-right" style="display: flex;align-items: center;justify-content: center;flex-direction: column;">
+                    <h1 class="w-100 text-center mb-0 pb-0 text-info">0</h1>
+                    <h3 class="f-28 money">Low In Stock</h3>
+                </div>
+                <div class="col-6 border-left" style="display: flex;align-items: center;justify-content: center;flex-direction: column;">
+                    <h1 class="w-100  text-center mb-0 pb-0 text-danger">0</h1>
+                    <h3 class="f-28 money">Out Of Stock</h3>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="table-area">
+                        <div class="table-features">
+                            <div class="table-filter"></div>
+                            <div class="table-search"></div>
+                            <div tabindex="23" class="sw-droplabel table-dots"></div>
+                            <div class="sw-dropdown f-12">
+                                <div class="sw-dropmenu" style="right: 0;left: auto;">
+                                    <div class="sw-item">Inactive Selected</div>
+                                    <div class="sw-item">Adjust Columns</div>                                    
+                                    <div class="sw-item border-top">Include Inactive</div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table pager_details table-rower table-infom">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Customer Name</th>
+                                    <th class="text-left">Category</th>
+                                    <th class="text-left">In Stock</th>                                    
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for in in inv %}
+                                    <tr class="p-0" style="line-height: 1.2em;">
+                                        <td class="text-left">
+                                            <a href="#">
+                                                {{ in.name }}
+                                            </a><br>
+                                            <span class="f-10 mt-0 pt-0">{{ in.product_code }}</span>
+                                        </td>
+                                        <td>{{ in.category }}</td>                                        
+                                        <td>{{ in.qty }}</td>
+                                        <td class="text-right">Do Something</td>
+                                    </tr>
+                                {% endfor %}                                
+                            </tbody>                    
+                        </table>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    {% else %}
+    <div class="container h-100" style="display: flex;align-items: center;justify-content: center;">        
+        <h2 class="f-34 text-center money w-50">
+            Manage Your TrustWorthy Suppliers.<br>
+            <span drawer-target="#newInventory" id="create_inv_btn" tabindex="102" class="sw-btn drawer-button d-inline-block f-16 mt-2 px-3 sharp-txt">
+                <span class="sw-btn-ripple"></span>
+                Get Started
+            </span>
+        </h2>      
+    </div>
+    {% endif %}
+{% endblock main %}

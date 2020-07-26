@@ -1,0 +1,48 @@
+.sw-panel{
+    position: relative;
+    background: #fff;            
+    padding: 5px 10px;
+    min-height: 50px;
+    box-shadow:  0px 3px 2px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0,0,0,.12);            
+}
+.sw-wing{            
+    height: 0;            
+    opacity: 0;
+    transition: opacity 0.25s ease-in;            
+    width: 100%;
+    overflow: hidden;
+}
+.sw-wing.show{
+    height: auto;
+    opacity: 1;            
+}
+
+/* 
+<div class="sw-panel w-50">
+        
+        <div class="sw-wing show" data-wing="1">
+            <h1 class="f-22">First Heading</h1>
+            <p class="f-14">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur excepturi aliquid aliquam. At incidunt dicta, dignissimos eius quas non nam necessitatibus error odit. Quos, quibusdam cupiditate? Veritatis, aut? Culpa, voluptatum?</p>
+            
+            <button class="sw-btn wing-btn  " data-target="2" >NEXT PANNEL</button>
+        </div>
+
+        <div class="sw-wing" data-wing="2">
+            <h1 class="f-22">Second Heading</h1>
+            <p class="f-14">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur excepturi aliquid aliquam. At incidunt dicta, dignissimos eius quas non nam necessitatibus error odit. Quos, quibusdam cupiditate? Veritatis, aut? Culpa, voluptatum?</p>
+            <p class="f-14">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur excepturi aliquid aliquam. At incidunt dicta, dignissimos eius quas non nam necessitatibus error odit. Quos, quibusdam cupiditate? Veritatis, aut? Culpa, voluptatum?</p>
+
+            <button class="sw-btn wing-btn" data-target="1" >back</button>
+            <button class="sw-btn wing-btn" data-target="3" >Next</button>
+        </div>
+
+        <div class="sw-wing" data-wing="3">
+            <h1 class="f-22">Third Heading</h1>
+            <p class="f-14">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur excepturi aliquid aliquam. At incidunt dicta, dignissimos eius quas non nam necessitatibus error odit. Quos, quibusdam cupiditate? Veritatis, aut? Culpa, voluptatum?</p>
+            <p class="f-14">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur excepturi aliquid aliquam. At incidunt dicta, dignissimos eius quas non nam necessitatibus error odit. Quos, quibusdam cupiditate? Veritatis, aut? Culpa, voluptatum?</p>
+            <p class="f-14">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur excepturi aliquid aliquam. At incidunt dicta, dignissimos eius quas non nam necessitatibus error odit. Quos, quibusdam cupiditate? Veritatis, aut? Culpa, voluptatum?</p>
+            <button class="sw-btn wing-btn" data-target="2" >back</button>
+        </div>
+
+    </div>
+     */

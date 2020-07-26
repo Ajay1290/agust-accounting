@@ -1,0 +1,67 @@
+/*
+	This CSS Framework is gonna be text first framework,
+	built by keeping in mind how text annoied us over
+	different screen sizes
+	
+*/
+
+@import "./components/swarup-components.css"; 
+@import "./swarup-fonts.css"; 
+@import "./swarup-spacing.css";
+@import "./swarup-utils.css";
+
+:root{
+	--theme-primary: #120d2f;
+	--theme-accent: #120d2f;
+	--theme-surface: #ECEEF1;
+	--blue: #007bff;
+	--indigo: #6610f2;
+	--purple: #6f42c1;
+	--pink: #e83e8c;
+	--red: #dc3545;
+	--orange: #fd7e14;
+	--yellow: #ffc107;
+	--green: #28a745;
+	--teal: #20c997;
+	--cyan: #17a2b8;
+	--white: #FFFFFF;
+	--gray: #6c757d;
+	--gray-dark: #343a40;
+	--primary: #00A09D;
+	--secondary: #6c757d;
+	--success: #00A04A;
+	--info: #87C0D1;
+	--warning: #F0AD4E;
+	--danger: #DC6965;
+	--light: #f8f9fa;
+	--dark: #343a40;
+	--alpha: #00A09D;
+	--beta: #875A7B;
+	--gamma: #5C5B80;
+	--delta: #5B899E;
+	--epsilon: #E46F78;
+	--breakpoint-xs: 0;
+	--breakpoint-sm: 576px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 992px;
+	--breakpoint-xl: 1200px;
+	--font-family-sans-serif: "Roboto", "Cairo", sans-serif;
+}
+
+*, *::before, *::after{box-sizing: border-box;}
+
+:focus{
+	outline: none;
+}
+
+p{
+	font-family: sans-serif;
+}
+
+.money{
+	font-family: "Rajdhani", "Roboto", sans-serif !important;
+}
+
+.sharp-txt{
+	font-family: "Roboto", sans-serif !important;
+}
