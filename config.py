@@ -66,4 +66,7 @@ class BaseConfig(object):
 class DevConfig(BaseConfig):
     DEBUG = True
     TESTING = False
-    ENV='development'
+
+class TestConfig(BaseConfig):
+    DEBUG = False
+    TESTING = True

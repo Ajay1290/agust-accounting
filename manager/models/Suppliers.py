@@ -28,5 +28,4 @@ class Suppliers(ResourceMixin, db.Model):
     pan = db.Column(db.String(10), server_default='')
 
     # Meta Info
-    is_active = db.Column('is_active', db.Boolean(), nullable=False, server_default='1')    
-
+    is_active = db.Column('is_active', db.Boolean(), nullable=False, server_default='1')

@@ -6,11 +6,13 @@ from manager.models import *
 from manager.apps import *
 
 
-def create_app():
+def create_app(config=False):
 
     app = Flask(__name__, instance_relative_config=False)
-    
-    app.config.from_object('config.DevConfig')
+    if config:
+        app.config.from_object(config)
+    else:
+        app.config.from_object('config.DevConfig')
 
     with app.app_context():
         register_apps(app)        
