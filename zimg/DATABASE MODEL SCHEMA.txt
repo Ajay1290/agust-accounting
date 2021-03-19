@@ -1,0 +1,132 @@
+~~~~~~~~~~~~~~~~~( DATABASE MODEL SCHEMAS (TABLES) )~~~~~~~~~~~~~~~~~
+
+CUSTOMERS - (so you can sell to them)
+SUPPLIERS - (so you can buy from them)
+INVENTORY - (so you can manage assets)
+    Products - (so you can sell them)
+    Service  - (so you can provide service)
+INVOICES  - (so you can track your sales)
+VOUCHARS  - (so you can track your purchases/expenses)
+USER      - (so that i can track you)    
+Category  - (so you can group Customers, Suppliers, Inventory)
+Profits  - (so you can track pure profit efficentely)
+Expenses  - (so you can track expenses efficentely)
+Transections  - (so you can track transections efficentely)
+Accounts  - (so you can group transections)
+
+~Misc.
+Bank Accounts
+User Settings
+CreditCard
+Subscription
+
+
+~~~~~~~~~~~~~~~~~( OVERVIEW OF DATA PIPELINES )~~~~~~~~~~~~~~~~~
+
+
+Customers  --sale-->  Invocies  --profit-->(+)   Profits
+                        |(-)                        |(+)
+                     Inventory                  Transections --accounts-->(+)   Accounts
+                        |(+)                        |(+)
+Suppliers  --pur.-->  Vouchars  --expen.-->(+)    Expenses
+
+
+~~~~~~~~~~~~~~~~~( TABLES SCHEMAS )~~~~~~~~~~~~~~~~~
+
+CUSTOMERS:
+    __tablename__ = "Customers"
+
+    id = Integer, primary_key=True
+
+    # Genral Info
+    first_name = String(50), nullable=False
+    last_name = String(50)
+    company = String(50), index=True
+    display_name = String(50), nullable=False
+    customer_type = String(50)
+
+    # Contant Info
+    phone = String(15), server_default=''
+    email = String(255), server_default=''
+    website = String(255), server_default=''
+
+    # Billing Address
+    address = String(300), server_default=''
+    pincode = String(25), server_default=''
+    city = String(255), index=True, server_default=''
+    state = String(255), server_default=''
+    country = String(255), server_default=''
+
+    # Shiping Address
+    s_address = String(300), server_default=''
+    s_pincode = String(25), server_default=''
+    s_city = String(255), server_default=''
+    s_state = String(255), server_default=''
+    s_country = String(255), server_default=''
+
+    # Tax Info
+    gst = String(15), server_default=''
+    pan = String(10), server_default=''
+
+    # Meta Info
+    is_active = Boolean(), nullable=False, server_default='1'
+-------------------------------------------------------------------------------------
+
+USER:
+    __tablename__ = "Users"
+
+    ROLE = OrderedDict([
+        ('member', 'Member'),
+        ('admin', 'Admin')
+    ])    
+
+    id = Integer, primary_key=True)
+    
+    # Relationships.
+    credit_card = relationship(CreditCard, uselist=False, backref='users', passive_deletes=True)
+    subscription = relationship(Subscription, uselist=False, backref='users', passive_deletes=True)
+    invoices = relationship(Invoice, backref='users', passive_deletes=True)
+
+    # Authentication.
+    role = Enum(*ROLE, name='role_types', native_enum=False), index=True, nullable=False,server_default='member')
+    active = Boolean(), nullable=False, server_default='1'
+    username = String(24), unique=True, index=True
+    phone = String(13)
+    email = String(255), unique=True, nullable=False, server_default=''
+    password = String(128), nullable=False, server_default=''
+
+    # Billing.
+    name = String(128), index=True
+    organization = String(128)
+    payment_id = String(128), index=True
+    cancelled_subscription_on = Column(AwareDateTime()
+    previous_plan = String(128)
+
+    # Activity tracking.
+    sign_in_count = Integer, nullable=False, default=0
+    current_sign_in_on = Column(AwareDateTime()
+    current_sign_in_ip = String(45)
+    last_sign_in_on = Column(AwareDateTime()
+    last_sign_in_ip = String(45)
+
+    # Additional settings.
+    locale = String(5), nullable=False, server_default='en'
+-------------------------------------------------------------------------------------
+
+INVENTORY:
+    __tablename__ = "Inventory"
+
+    id = Integer, primary_key=True
+
+    name = String, unique=True, server_default=''
+    product_code = String, server_default=''
+    category = String, server_default=''
+    description = String, server_default=''
+    
+    sales_price = DECIMAL(precision=20, scale=2), server_default='0'
+    purchase_price = DECIMAL(precision=20, scale=2), server_default='0'
+    profit = DECIMAL(precision=20, scale=2), server_default='0'
+
+    unit = String, server_default=''
+    qty = Integer, server_default='0'
+    low_stock_alert = Integer, server_default='0'

@@ -9,6 +9,7 @@ from manager.apps import *
 def create_app(config=False):
 
     app = Flask(__name__, instance_relative_config=False)
+    
     if config:
         app.config.from_object(config)
     else:

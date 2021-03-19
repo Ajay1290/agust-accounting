@@ -12,5 +12,5 @@ class TestUsersPages(object):
     def test_register_page(self, client):
         """ Register users should respond with a success 200. """
 
-        response = client.get(url_for('users.register'))
+        response = client.get(url_for('users.signup'))
         assert response.status_code == 200

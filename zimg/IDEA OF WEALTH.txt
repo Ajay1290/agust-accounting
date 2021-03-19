@@ -1,0 +1,62 @@
+         ---Wealth Managment System----
+
+~~~~~~~~~~~( OUTER INSIGHTS OF WEALTH )~~~~~~~~~~~~
+    
+#Term
+Wealth : Property, Assets, Minerals
+
+Q.  What affects the wealth?
+    =>  Profit & Loss affects the wealth.
+
+Q.  How Profit Happends?
+    =>  When you sell something to Customers.
+    =>  When you provide service to Customers.
+    =>  Cyclic Earnings from Assets.
+        e.g: [(Renting home/land/etc.), (Interest on Bank Deposites)]    
+
+Q.  How Loss Happends?
+    =>  when you buy items from Suppliers.
+    =>  when you take service from Suppliers.
+    =>  Cyclic Losses due to Assets.
+        e.g: [(Leasing home/land/etc.), (Loan from Bank)]
+    =>  Eventual Savings Losses
+        e.g: [(Medical Urgency)]
+    
+
+~~~~~~~~~~~( OUTER INSIGHTS OF PROFIT )~~~~~~~~~~~~
+
+Q.  What happends when you sell something.
+    =>  You have Customers.
+    =>  Invocie Created!
+    =>  Loss of asset in stock happends
+    =>  Profit in the wealth happends
+    =>  You pay Tax to sell things
+
+Q.  What happends when you provide service.
+    =>  You have Customers.
+    =>  Invocie Created on cyclic/event basis!
+    =>  Profit in the wealth happends on cyclic/event basis.
+
+Q.  Cyclic Earnings from Assets.
+    =>  You have Customers.
+    =>  Assets in hold of other person/org so you can't use them.
+    =>  Profit in the wealth happends on cyclic/event basis.
+
+~~~~~~~~~~~( OUTER INSIGHTS OF LOSS )~~~~~~~~~~~~
+
+Q.  What happends when you buy something.
+    =>  You have Suppliers.
+    =>  Vouchar Created!
+    =>  Loss in the wealth happends
+    =>  Increase in stock happends
+    =>  You pay Tax to buy things
+
+Q.  What happends when you consume service.
+    =>  You have Suppliers.
+    =>  Vouchar Created on cyclic/event basis!
+    =>  Loss in the wealth happends on cyclic/event basis.
+
+Q.  Cyclic Earnings from Assets.
+    =>  You have Suppliers.
+    =>  Assets in hold of other person/org so you can't use them.
+    =>  Profit in the wealth happends on cyclic/event basis.

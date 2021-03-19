@@ -1,0 +1,51 @@
+~~~~~~~~~~~~~~~~~( TECHNOLOGIES USED )~~~~~~~~~~~~~~~~~
+
+FrontEND:
+    HTML5
+    CSS3
+    JS(ES6)
+    SCSS
+    AJAX
+    Bootstrap
+    Swarup CSS
+    Material Design
+    Webpack
+
+BackEND:
+    Python
+    Lua
+    Flask
+    wtForms
+    sqlalchemy
+    stripe
+    celery
+    alembic
+    gunicorn
+    Node.js
+
+Javascript Libraies:
+    pdf.js
+    jQuery
+    moment.js
+
+Python Libraies:
+    flask-sqlalchemy
+    flask-wtForms
+    flask-login
+    psycopg2
+    click
+    jinja2
+    PyPDF2
+
+DATABASE Engine:
+    SQL
+    PostgreSQL
+    Sqlite3
+    JsonDB
+    redis
+
+DevOPS:
+    docker
+    nginx
+    supervisor
+    SSL
